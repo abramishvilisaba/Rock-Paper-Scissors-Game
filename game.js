@@ -41,11 +41,13 @@ class RockPaperScissors {
             value: this.choices[parseInt(Choice)],
         };
     }
+
     generateComputerChoice() {
         this.computerChoice = this.createChoice(
             _.random(1, this.choices.length) - 1
         );
     }
+    
     generateKeyAndHmac() {
         this.key = this.hmacGenerator.generateKey();
         this.hmac = this.hmacGenerator.generateHmac
@@ -75,7 +77,6 @@ class RockPaperScissors {
         return _.some(arr, (element, index) => _.contains(arr.slice(index + 1), element));
     }
     
-
     async displayTableAndRestart(choices) {
         this.tableDisplayer.displayTable(choices);
     }
@@ -99,11 +100,7 @@ class RockPaperScissors {
             });
         };
         
-
-        
-
         try {
-
             if (this.checkForRepeatedParams(this.choices)) {
                 throw new Error("Do Not Enter Repeated Arguments");
             }
